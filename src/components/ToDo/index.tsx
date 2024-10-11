@@ -2,20 +2,24 @@ import React from 'react';
 import TodoItem from './TodoItem';
 import './style.css'; 
 
-interface TodoListProps{
-    
+interface ITodoItem{
+    id: number;
+    title: string;
+}
+
+interface TodoProps{
+    items: ITodoItem[];
 
 }
 
-const Todo: React.FC<TodoListProps> = (props) => {
+const Todo: React.FC<TodoProps> = (props) => {
 
     return (
         <div className='todo-container'>
             <ol>
-                <TodoItem title='eat'/>
-                <TodoItem title='code'/>
-                <TodoItem title='sleep'/>
-                <TodoItem title='repeat'/>
+                {props.items.map((item) => (
+                    <TodoItem key={item.id} title={item.title} />
+               ))}
             </ol>
         </div>
     );

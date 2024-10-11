@@ -5,8 +5,8 @@ interface TodoItemProps {
     title: string;
 }
 
-const TodoItem: React.FC<TodoItemProps> = (props) => {
-    return <li>{props.title}</li>;
+const TodoItem: React.FC<TodoItemProps> = ({title}) => {
+    return <li>{title}</li>;
 };
 
 export default TodoItem;
